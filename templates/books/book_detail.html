@@ -1,11 +1,14 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Фильмы</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
 </head>
 <body>
+    {%  include 'header.html' %}
     <h1>Подробнее об фильме - {{ book_id.title }}</h1>
     <img src="{{ book_id.image.url }}" alt="" width="450" height="400">
     <p>Описание: {{ book_id.annotation }}</p>
@@ -24,14 +27,15 @@
      
     <ol>
         <!-- Вставить цикл тут -->
+         {% for i in book_id.reviews.all %}
         <li>
-            <h2>Имя - "вставить значение переменной тут"</h2>
-            <p>Оценка - "вставить значение переменной тут"</p>
-            <p>Комментарий - "вставить значение переменной тут"</p>
+            <h2>Имя - {{ i.name_user }}</h2>
+            <p>Оценка - {{ i.mark }}</p>
+            <p>Комментарий - {{ i.comments }}</p>
         </li>
-        
+        {% endfor %}
         <!-- Закрыть цикл тут -->
     </ol>
-
+    {% include 'footer.html' %}
 </body>
 </html>

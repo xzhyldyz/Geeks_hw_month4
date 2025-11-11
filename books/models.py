@@ -1,4 +1,5 @@
 from django.db import models
+from django.conf import settings
 
 class Book(models.Model):
 
@@ -30,3 +31,25 @@ class Book(models.Model):
     class Meta:
         verbose_name = 'Книга'
         verbose_name_plural ='Книги'
+
+
+class Reviews(models.Model):
+
+    MARK = (
+        ('1','1'),
+        ('2','2'),
+        ('3','3'),
+        ('4','4'),
+        ('5','5')
+    )
+    choice_book = models.ForeignKey(Book, on_delete=models.CASCADE, related_name='reviews')
+    user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, related_name='reviews')
+    mark = models.CharField(max_length=100, choices=MARK, default='4')
+    comments = models.TextField()
+
+    def __str__(self):
+        return f'{self.choice_book} - {self.mark}'
+    
+    class Meta:
+        verbose_name = 'Отзыв'
+        verbose_name_plural ='Отзывы'

@@ -1,0 +1,20 @@
+<body>                                                                                              
+{% include 'header.html' %}  
+
+<h1>Заказы</h1>                                                                      
+    <ul>                                                                                                
+        {% for i in orders %}                                                                    
+        <li>                                                                                              
+            {{ i.book.title }} -                                                        
+            {{ i.name }} -
+            {{ i.count }} -                 
+        </li> 
+        <a href="{% url 'basket_delete' i.id %}">Удалить</a>
+        {%empty%}  
+           <li>Пока нет заказов</li>                                                                                           
+        {%endfor%}                                                                                 
+    </ul>      
+    
+    
+{% include 'footer.html' %}                                                               
+</body> 

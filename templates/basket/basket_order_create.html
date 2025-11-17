@@ -1,0 +1,7 @@
+{% include 'header.html' %}                                                                                              
+<form action="{% url 'basket_create' book.id %}" method="POST" enctype="multipart/form-data">
+    {% csrf_token %}
+    {{ form.as_p }}   
+    <button type="submit"> Оформить заказ </button> 
+</form>                                                                           
+{% include 'footer.html' %}

@@ -1,0 +1,15 @@
+{% include 'header.html' %} 
+<h1>Удаление заказа</h1>  
+<p>Вы уверены, что хотите удалить заказ?</p>  
+<p>
+    Книга: {{ orders.book.title }}<br>
+    Имя: {{ order.name}}<br>
+    Количество: {{order.count }}
+</p>                                                                                         
+<form method="POST">
+    {% csrf_token %}
+    <button type="submit"> Да, удалить</button>
+    <a href="{% url 'basket_list' %}">Нет, вернуться назад</a>
+</form>    
+                                                                       
+{% include 'footer.html' %}

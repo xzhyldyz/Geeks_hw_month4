@@ -29,6 +29,7 @@ INSTALLED_APPS = [
     'books',
     'BASKET',
     'users',
+    'clothes',
 ]
 
 MIDDLEWARE = [

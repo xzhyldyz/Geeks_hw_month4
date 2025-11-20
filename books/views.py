@@ -4,6 +4,18 @@ from django.shortcuts import render, get_object_or_404
 # import random
 from . import models
 
+
+#search
+def searchView(request):
+    query = request.GET.get('s', '')
+    book = models.Book.objects.filter(title__icontains=query) if query else models.Book.none
+    context = {
+        'book':book,
+        's': query
+    }
+    return render(request, template_name='books/books.html', context=context)
+
+
 def BookListView(request):
     if request.method == 'GET':
         book = models.Book.objects.all()
@@ -20,6 +32,8 @@ def BookDetailView(request, id):
             'book_id': book_id
         }
     return render(request, template_name='books/book_detail.html', context=context)
+
+
 
 
 

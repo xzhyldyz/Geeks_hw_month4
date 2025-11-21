@@ -30,6 +30,7 @@ INSTALLED_APPS = [
     'BASKET',
     'users',
     'clothes',
+    'CineBoard',
 ]
 
 MIDDLEWARE = [

@@ -2,11 +2,8 @@
 <header style="background-color:#1e1e1e; padding:20px 40px; box-shadow:0 4px 10px rgba(0,0,0,0.5); display:flex; justify-content:space-between; align-items:center;">
    <h1 style="margin:0; font-size:24px; color:#ff3c00;">GEEKS 58-1</h1>
    <nav style="display: flex; align-items:center; gap:20px;">
-    <form action="{% url 'search' %}" method="GET">
-      <input type="text" type="search" name="s">
-      <button type="submit">Поиск</button>
-    </form>
-       <a href="{% url 'book_list' %}" style="color:#f5f5f5; margin-right:20px; font-weight:bold;">Главная</a>
+       <a href="{% url 'book_list' %}" style="color:#f5f5f5; margin-right:20px; font-weight:bold;">Список книг</a>
+       <a href="{% url 'film_list' %}" style="color:#f5f5f5; margin-right:20px; font-weight:bold;">Список фильмов</a>
        <a href="{% url 'all_prod' %}" style="color:#f5f5f5; margin-right:20px; font-weight:bold;">Хэштеги</a>
        <a href="#" style="color:#f5f5f5; margin-right:20px; font-weight:bold;">TODO</a>
        <a href="{% url 'users:login' %}" style="color:#f5f5f5; margin-right:20px; font-weight:bold;">Авторизация</a>

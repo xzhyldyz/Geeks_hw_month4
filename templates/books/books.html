@@ -11,6 +11,11 @@
     {%  include 'header.html' %}
 
     <h1>Все книги</h1>
+    <form action="{% url 'search' %}" method="GET">
+      <input type="text" type="search" name="s">
+      <button type="submit">Поиск</button>
+    </form>    
+
     <ul>
         <!-- Цикл вставить тут -->
          {% for i in book %}
